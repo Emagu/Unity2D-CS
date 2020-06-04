@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
 	public bool IsPenetrate = false;
 	private Vector2 StartPosition;
 	private float StartAngle;
+
     void Start()
     {
         

@@ -25,14 +25,29 @@ public class Hand : MonoBehaviour
 		transform.rotation = Quaternion.Slerp( transform.rotation, Quaternion.Euler( 0, 0, (FaceLeft ? Angle - 180: Angle)), 5 * Time.deltaTime );
     }
 	
-	public void ShootAnimStatus()
+	public bool ShootAnim()
 	{
-		Anim.Play("Fire");
+		return PlayAnim("Fire");
+	}
+	
+	public bool ThrowAnim()
+	{
+		return PlayAnim("Throw");
 	}
 	
 	public void SetFilpX(bool x)
 	{
 		SpriteRenderer m_SpriteRenderer = GetComponent<SpriteRenderer>();
 		m_SpriteRenderer.flipX = x;
+	}
+	
+	private bool PlayAnim(string animName)
+	{
+		if(Anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+		{
+			Anim.Play(animName);
+			return true;
+		}
+		return false;
 	}
 }

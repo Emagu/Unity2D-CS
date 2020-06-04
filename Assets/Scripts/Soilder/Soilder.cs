@@ -6,6 +6,7 @@ using System;
 public class Soilder : MonoBehaviour
 {
 	public GameObject Bullet;//子彈物件
+	public GameObject Grenade;//手雷物件
 	private int Health = 100;
     private Hand hand;
 	private Foot foot;
@@ -30,14 +31,20 @@ public class Soilder : MonoBehaviour
 	
 	private void ShootHandler()
 	{
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(0) && hand.ShootAnim())
 		{
-			Instantiate(Bullet, hand.transform.position + new Vector3(hand.FaceLeft ? -0.05f : 0.05f, 0, 0), new Quaternion(0, 0, 0, 0))//clone
+			Instantiate(Bullet, hand.transform.position + new Vector3((hand.FaceLeft ? -0.05f : 0.05f), 0, 0), new Quaternion(0, 0, 0, 0))//clone
 				.GetComponent<Bullet>()//get script class
 				.Init(transform.position, hand.Angle, 4);//init bullet info
-			hand.ShootAnimStatus();
+		}
+		else if(Input.GetKey(KeyCode.Space) && hand.ThrowAnim())
+		{
+			GameObject throwGrenade = Instantiate(Grenade, hand.transform.position + new Vector3((hand.FaceLeft ? 0.1f : -0.1f), 0, 0), new Quaternion(0, 0, 0, 0));
+			Rigidbody GrenadeBody = throwGrenade.AddComponent<Rigidbody>();
+			GrenadeBody.AddForce(Quaternion.Euler(0, hand.Angle, 0) * new Vector3(5, 5f, 0), ForceMode.VelocityChange);
 		}
 	}
+	
 	
 	private void MoveHandler()
 	{
