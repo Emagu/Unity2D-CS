@@ -43,10 +43,9 @@ public class Unit : Object
 			case CommandType.Hold:
 				Move(false);
 
-				if (EnemyList.Count > 0 && Attack())
+				if (EnemyList.Count > 0)
 				{
-                    Object targetEmemy = EnemyList.First();
-					DamagePopup.Create(targetEmemy.transform.position, 100);
+					Attack();
 				}
 				break;
 			case CommandType.Forward:
@@ -70,6 +69,12 @@ public class Unit : Object
 	{
 		Debug.LogWarning("Not Set Attack Event");
 		return false;
+	}
+
+	protected virtual void CalAttackDamage()
+	{
+		Object targetEmemy = EnemyList.First();
+		DamagePopup.Create(targetEmemy.transform.position, 100, false);
 	}
 
 	public void SelectCommand(string CommandKey)
