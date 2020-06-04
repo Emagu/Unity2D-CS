@@ -4,3 +4,4 @@
 /.vs
 /Assets/Scripts/.vs
 /obj
+*.suo
