@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1333006409229057527}
   - component: {fileID: 1333006409229057526}
-  - component: {fileID: 1333006409229057524}
-  - component: {fileID: 1333006409229057525}
+  - component: {fileID: 7506725542242792067}
+  - component: {fileID: 3967371138020590999}
   m_Layer: 9
-  m_Name: lancer
+  m_Name: saber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6060888893177541482, guid: b858b883472c92741984583a9952b8cb,
+  m_Sprite: {fileID: 5293869370252707454, guid: 86eb8c3fd52daec4ea37505ef14d3087,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1333006409229057524
+--- !u!95 &7506725542242792067
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -96,16 +96,16 @@ Animator:
   m_GameObject: {fileID: 1333006409229057521}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5442a1c4e995d674eaeaa09feef10ee4, type: 2}
+  m_Controller: {fileID: 9100000, guid: dc4fa2fecf6f16b488e2399c2360d9ac, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1333006409229057525
+--- !u!114 &3967371138020590999
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1333006409229057521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40c4622fe5d59874eb1407b039c3b2f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 83ea8c8f9eea2e14ebdf49eb44551963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoint: 100
@@ -232,7 +232,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.6383914, y: 0.023090295}
+  m_Offset: {x: 0.34297168, y: 0.03961736}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.22, y: 0.36}
@@ -243,7 +243,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.71016, y: 0.14851964}
+  m_Size: {x: 0.28872186, y: 0.4790591}
   m_EdgeRadius: 0
 --- !u!50 &4303407868552009567
 Rigidbody2D:
@@ -370,7 +370,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 7635407945173975184}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: d2bcbbc2432279b4ba5c52bd52f0637b, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0

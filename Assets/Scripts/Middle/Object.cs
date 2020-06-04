@@ -20,10 +20,18 @@ public class Object : MonoBehaviour
 	public int CritResistance;//爆擊抵抗
 	public int AttackAddition;//傷害提升(%)
 
-	public virtual Object Create(Vector3 posistion)
+	protected CommandType CommandSelected = CommandType.Hold;
+	protected CommandType CommandStatus = CommandType.Hold;
+	public static Object Create(Transform createObject, Vector3 posistion, bool isEnemy = false)
 	{
-		Debug.LogError("not set object create target");
-		return null;
+        Transform ob = Instantiate(createObject, posistion, Quaternion.identity);
+		if (isEnemy)
+		{
+			ob.tag = "Enemy";
+			ob.Rotate(new Vector3(0, 180, 0));
+		}
+		
+		return ob.gameObject.GetComponent<Object>();
 	}
 
 	protected int CalPenetrateRate(Object target)
@@ -75,5 +83,13 @@ public class Object : MonoBehaviour
 								* damageCritAddition.Rate() 
 								* damageBlockAddition.Rate());
 	}
-	
+
+	public void SelectCommand(string CommandKey, bool tempStatus = false)
+	{
+		CommandStatus = (CommandType)System.Enum.Parse(typeof(CommandType), CommandKey);
+		if (!tempStatus)
+		{
+			CommandSelected = CommandStatus;
+		}
+	}
 }

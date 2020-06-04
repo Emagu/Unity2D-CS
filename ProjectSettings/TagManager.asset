@@ -18,7 +18,7 @@ TagManager:
   - 
   - 
   - bow
-  - 
+  - unit
   - 
   - 
   - 
@@ -45,6 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: UI
+    uniqueID: 1642348329
+    locked: 0
   - name: bow
     uniqueID: 1978583745
+    locked: 0
+  - name: unit
+    uniqueID: 3327660367
     locked: 0

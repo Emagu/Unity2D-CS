@@ -65,14 +65,17 @@
   <ItemGroup>
     <Compile Include="Assets\Assembly\BetterToggleGroup.cs" />
     <Compile Include="Assets\Character\Middle\lancer\Lancer.cs" />
+    <Compile Include="Assets\Character\Middle\saber\Saber.cs" />
     <Compile Include="Assets\Effects\DamagePopup.cs" />
     <Compile Include="Assets\Resources\Scripts\GameAssets.cs" />
+    <Compile Include="Assets\Resources\Scripts\UI.cs" />
     <Compile Include="Assets\Scripts\Arrow.cs" />
     <Compile Include="Assets\Scripts\Bullet\Bullet.cs" />
     <Compile Include="Assets\Scripts\CameraMove.cs" />
     <Compile Include="Assets\Scripts\Extension\Math.cs" />
     <Compile Include="Assets\Scripts\Middle\Command.cs" />
     <Compile Include="Assets\Scripts\Middle\Constant.cs" />
+    <Compile Include="Assets\Scripts\Middle\GameHandler.cs" />
     <Compile Include="Assets\Scripts\Middle\Object.cs" />
     <Compile Include="Assets\Scripts\Middle\Unit.cs" />
     <Compile Include="Assets\Scripts\Middle\Weapon.cs" />

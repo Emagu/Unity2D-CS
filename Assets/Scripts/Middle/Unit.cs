@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Unit : Object
 {
-	protected CommandType CommandSelected = CommandType.Hold;
 	protected Animator Anim;
 	protected bool isRetreat = false;
 
@@ -38,7 +37,7 @@ public class Unit : Object
 	
 	protected virtual void CommandUpdateEvent()
 	{
-		switch(CommandSelected)
+		switch(CommandStatus)
 		{
 			case CommandType.Hold:
 				Move(false);
@@ -47,6 +46,11 @@ public class Unit : Object
 				{
 					Attack();
 				}
+				else
+				{
+					SelectCommand(CommandSelected.ToString());
+				}
+
 				break;
 			case CommandType.Forward:
 				if(isRetreat)
@@ -67,18 +71,19 @@ public class Unit : Object
 
 	protected virtual bool Attack()
 	{
-		Debug.LogWarning("Not Set Attack Event");
+		if (Anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+		{
+			Anim.Play("Attack");
+			return true;
+		}
 		return false;
 	}
 
 	protected virtual void CalAttackDamage()
 	{
 		Object targetEmemy = EnemyList.First();
-		DamagePopup.Create(targetEmemy.transform.position, 100, false);
-	}
-
-	public void SelectCommand(string CommandKey)
-	{
-		CommandSelected = (CommandType)System.Enum.Parse(typeof(CommandType), CommandKey);
+		bool isCirt = Random.Range(0, 100) < 30;
+		DamagePopup.Create(targetEmemy.transform.position, isCirt ? 150 : 100, isCirt);
+		targetEmemy.HealthPoint -= 1;
 	}
 }

@@ -16,12 +16,16 @@ public class GameAssets : MonoBehaviour
         }
     }
 
+
     #region Effects
     public Transform DamagePopup;
     #endregion
 
     #region Units
-    public Transform Lancer;
+    public Transform LancerTransform;
 
+    public Transform SaberTransform;
     #endregion
+
+
 }

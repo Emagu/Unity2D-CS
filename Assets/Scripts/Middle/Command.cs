@@ -1,6 +1,6 @@
 ﻿public class Command : BetterToggleGroup
 {
-    public Unit HandlerUnit;
+    public Object HandlerUnit;
     protected override void OnChange(UnityEngine.UI.Toggle newactive)
     {
         HandlerUnit.SelectCommand(newactive.name);

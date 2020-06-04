@@ -22,7 +22,7 @@ public class Weapon : MonoBehaviour
 			if (isContact)
 			{
 				selfUnit.EnemyList.Add(enemy.GetComponent<Object>());
-				selfUnit.SelectCommand(CommandType.Hold.ToString());
+				selfUnit.SelectCommand(CommandType.Hold.ToString(), true);
 			}
 			else 
 			{

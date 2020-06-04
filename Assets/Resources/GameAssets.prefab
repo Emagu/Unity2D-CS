@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2691608272732070194}
   - component: {fileID: 2691608272732070205}
   m_Layer: 0
-  m_Name: GameAsset
+  m_Name: GameAssets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,4 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamagePopup: {fileID: 572236212052910398, guid: e0b65ff7780ef8546bad0aa64a3cd935,
+    type: 3}
+  LancerTransform: {fileID: 1333006409229057527, guid: d152dce715f0e4843b500d24ecc789dc,
+    type: 3}
+  SaberTransform: {fileID: 1333006409229057527, guid: eb016efd9c5bf9c45a6a8458e97607e9,
     type: 3}
