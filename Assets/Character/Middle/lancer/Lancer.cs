@@ -10,31 +10,6 @@ public class Lancer : Unit
 		CommandType.Retreat 
 	};
 
-    protected override void Update()
-    {	
-		bool isRun = false;
-        if (Input.GetKey(KeyCode.A))
-		{
-			isRun = true;
-			if(!isRetreat)
-			{
-				Filp();
-			}
-			transform.Translate(Vector2.right * Time.deltaTime); //往左
-		}
-		if (Input.GetKey(KeyCode.D))
-		{
-			isRun = true;
-			if(isRetreat)
-			{
-				Filp();
-			}
-			transform.Translate(Vector2.right * Time.deltaTime); //往右
-		}
-		Move(isRun);
-		base.Update();
-    }
-	
 	protected override bool Attack()
 	{
 		if(Anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))

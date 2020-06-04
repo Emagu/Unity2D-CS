@@ -19,6 +19,13 @@ public class Object : MonoBehaviour
 	public int CritAddition;//爆擊傷害(%)
 	public int CritResistance;//爆擊抵抗
 	public int AttackAddition;//傷害提升(%)
+
+	public virtual Object Create(Vector3 posistion)
+	{
+		Debug.LogError("not set object create target");
+		return null;
+	}
+
 	protected int CalPenetrateRate(Object target)
 	{
 		int rank = PenetrateLevel - target.PenetrateResistance;

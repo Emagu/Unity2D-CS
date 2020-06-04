@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class BetterToggleGroup : ToggleGroup
 {
-    void Start()
+    protected override void Start()
     {
         foreach (Transform transformToggle in gameObject.transform)
         {

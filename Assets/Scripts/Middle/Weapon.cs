@@ -1,14 +1,8 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
 	private void OnTriggerEnter2D(Collider2D collision)
-	{
-		HandleWeaponTrigger(collision, true);
-	}
-
-	private void OnTriggerStay2D(Collider2D collision)
 	{
 		HandleWeaponTrigger(collision, true);
 	}
@@ -21,18 +15,18 @@ public class Weapon : MonoBehaviour
     private void HandleWeaponTrigger(Collider2D collision, bool isContact)
 	{
         Transform selfParent = transform.parent;
-        GameObject enemy = collision.gameObject;
+        GameObject enemy = collision.transform.parent.gameObject;
         Unit selfUnit = selfParent.gameObject.GetComponent<Unit>();
-		if (collision.CompareTag("Body") && !selfParent.CompareTag(enemy.transform.parent.tag))
+		if (collision.CompareTag("Body") && !selfParent.CompareTag(enemy.transform.tag))
 		{
 			if (isContact)
 			{
-				selfUnit.EnemyList.Add(enemy.GetComponent<Unit>());
+				selfUnit.EnemyList.Add(enemy.GetComponent<Object>());
 				selfUnit.SelectCommand(CommandType.Hold.ToString());
 			}
 			else 
 			{
-				selfUnit.EnemyList.Remove(enemy.GetComponent<Unit>());
+				selfUnit.EnemyList.Remove(enemy.GetComponent<Object>());
 			}
 		}
 	}

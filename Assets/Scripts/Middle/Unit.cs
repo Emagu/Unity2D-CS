@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Unit : Object
@@ -7,9 +8,9 @@ public class Unit : Object
 	protected Animator Anim;
 	protected bool isRetreat = false;
 
-	public List<Unit> EnemyList = new List<Unit>();
+	public List<Object> EnemyList = new List<Object>();
 
-	void Start()
+	private void Awake()
     {
         Anim = gameObject.GetComponent<Animator>();
     }
@@ -41,9 +42,11 @@ public class Unit : Object
 		{
 			case CommandType.Hold:
 				Move(false);
-				if (EnemyList.Count > 0)
+
+				if (EnemyList.Count > 0 && Attack())
 				{
-					Attack();
+                    Object targetEmemy = EnemyList.First();
+					DamagePopup.Create(targetEmemy.transform.position, 100);
 				}
 				break;
 			case CommandType.Forward:
@@ -65,7 +68,7 @@ public class Unit : Object
 
 	protected virtual bool Attack()
 	{
-		Debug.Log("Not Set Attack Event");
+		Debug.LogWarning("Not Set Attack Event");
 		return false;
 	}
 
